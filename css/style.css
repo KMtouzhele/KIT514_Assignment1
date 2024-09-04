@@ -1,0 +1,172 @@
+/* Reset some default browser styles */
+body,
+h1,
+label,
+input,
+select,
+table {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Basic styling for the body */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    padding: 20px;
+}
+
+/* Styling for the header */
+h1 {
+    color: #444;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Styling for the form container */
+form {
+    max-width: 900px;
+    margin: 0 auto 20px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto 20px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    color: #333;
+}
+
+/* Styling for form labels */
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+/* Styling for form inputs, selects, and password fields */
+input[type="text"],
+input[type="password"],
+select {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-bottom: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* Styling for form buttons */
+input[type="submit"],
+input[type="button"] {
+    background-color: #5cb85c;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-right: 10px;
+}
+
+/* Add hover effect for the buttons */
+input[type="submit"]:hover,
+input[type="button"]:hover {
+    background-color: #4cae4c;
+}
+
+/* Additional styling for buttons to differentiate them */
+input[type="button"] {
+    background-color: #0275d8;
+}
+
+input[type="button"]:hover {
+    background-color: #025aa5;
+}
+
+.error-message {
+    max-width: 600px;
+    color: red;
+    background-color: #ffe6e6;
+    border: 1px solid red;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+th {
+    background-color: #5cb85c;
+    color: white;
+    padding: 10px;
+    text-align: left;
+    font-weight: bold;
+    border-bottom: 2px solid #ddd;
+}
+
+/* Styling for table cells */
+td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+}
+
+/* Adding some hover effects for table rows */
+tr:hover {
+    background-color: #f2f2f2;
+}
+
+/* Optional: Add alternating row colors */
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+/* Additional styling for the IP Address column */
+td:last-child {
+    font-family: monospace;
+    color: #666;
+}
+
+.btn-red {
+    background-color: #d9534f;
+    color: #fff;
+}
+
+.btn-red:hover {
+    background-color: #c9302c;
+}
+
+.btn-blue {
+    background-color: #0275d8;
+    color: #fff;
+}
+
+.btn-blue:hover {
+    background-color: #025aa5;
+}
+
+.btn-green {
+    background-color: #5cb85c;
+    color: #fff;
+}
+
+.btn-green:hover {
+    background-color: #4cae4c;
+}
+
+
+.centered {
+    text-align: center;
+}
