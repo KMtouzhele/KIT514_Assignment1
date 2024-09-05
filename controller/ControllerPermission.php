@@ -37,7 +37,7 @@ class ControllerPermission
             default:
                 break;
         }
-        $result = $this->modelPermission->setRole($user_id, $role_id);
-        header("Location: ?action=topermission");
+        $this->modelPermission->setRole($user_id, $role_id);
+        header("Location: ?action=permission");
     }
 }

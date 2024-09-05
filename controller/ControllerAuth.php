@@ -115,6 +115,10 @@ class ControllerAuth
         }
     }
 
+    public function handleDiscordLogin(){
+        
+    }
+
     public function showLogin($error = null)
     {
         $this->viewLogin->output($error);

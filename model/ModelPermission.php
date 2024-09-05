@@ -21,7 +21,8 @@ class ModelPermission
             $stmt->fetch();
             $stmt->close();
         }
-        if ($role_id === 1) {
+        if ($role_id == 1) {
+            var_dump($role_id);
             return true;
         } else {
             return false;

@@ -9,6 +9,7 @@ include_once("controller/ControllerAuth.php");
 include_once("controller/ControllerHome.php");
 include_once("controller/ControllerLog.php");
 include_once("controller/ControllerPermission.php");
+include_once("controller/ControllerOAuth.php");
 
 $action = $_GET['action'] ?? 'tologin';
 $method = $_SERVER['REQUEST_METHOD'];
@@ -21,6 +22,8 @@ $controllerAuth = new ControllerAuth();
 $controllerHome = new ControllerHome();
 $controllerLog = new ControllerLog();
 $controllerPermission = new ControllerPermission();
+$controllerOAuth = new ControllerOAuth();
+
 
 switch ($action) {
     case 'toregister':
@@ -70,7 +73,7 @@ switch ($action) {
         $log->status = isset($_SESSION['id']) ? "success" : "failure";
         $controllerLog->recordLog($log);
         break;
-    case 'toaccesslog':
+    case 'accesslog':
         if (!isset($_SESSION['id']) || $_SESSION['id'] < 0) {
             echo "Session expired. Please login again.";
             header("Location: ?action=tologin");
@@ -83,17 +86,8 @@ switch ($action) {
         $controllerLog->recordLog($log);
 
         break;
-    case 'accesslog':
-        $search = isset($_POST['search']) ? $_POST['search'] : null;
-        $controllerLog->showLogs($search);
-        $log = new Log();
-        $log->user_id = $_SESSION['id'];
-        $log->status = "success";
-        $controllerLog->recordLog($log);
-        break;
-    case 'topermission':
+    case 'permission':
         if (!isset($_SESSION['id']) || $_SESSION['id'] < 0) {
-            echo "Session expired. Please login again.";
             header("Location: ?action=tologin");
             exit();
         }
@@ -101,13 +95,6 @@ switch ($action) {
         $log = new Log();
         $log->user_id = isset($_SESSION['id']) ? $_SESSION['id'] : null;
         $log->status = isset($_SESSION['id']) ? "success" : "failure";
-        $controllerLog->recordLog($log);
-        break;
-    case 'permission':
-        $controllerPermission->showPermission();
-        $log = new Log();
-        $log->user_id = $_SESSION['id'];
-        $log->status = "success";
         $controllerLog->recordLog($log);
         break;
     case 'setrole':
@@ -133,6 +120,12 @@ switch ($action) {
         $log->user_id = isset($_SESSION['id']) ? $_SESSION['id'] : null;
         $log->status = isset($_SESSION['id']) ? "success" : "failure";
         $controllerLog->recordLog($log);
+    case 'discordlogin':
+        if (!isset($_GET['code'])) {
+            header("Location ?action=home");
+            exit();
+        }
+        $controllerOAuth->handleOAuth();
     default:
         break;
 }
